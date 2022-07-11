@@ -4,7 +4,7 @@ local config = {
     mode = "split", -- one of {split, vsplit}
     close_on_success = true,
     save_before_run = true,
-    scroll_on_output = true, -- TODO: terrible naming, I beg you, change me
+    scroll_on_output = true,
 }
 local runners = {}
 
