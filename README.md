@@ -26,7 +26,7 @@ impact.add_runner({
 
 Use your favorite package manager.
 
-```bash
+```lua
 require "paq" {
   "sebkolind/impact.nvim";
 }
