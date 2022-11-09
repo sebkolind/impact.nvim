@@ -1,6 +1,26 @@
 # Impact.nvim
 
-A simple test runner for Neovim.
+A simple test runner for Neovim. The plugin provides an easy way to run your current file or the entire test suite.
+
+## Use case
+
+Currently working on my Jest tests in `myTests.ts`. Instead of running those in a separate terminal, I can use Impact to run the current file with ease - either 
+with a custom command or a keymap, or both if you are feeling fancy.
+
+All I have to do is to add a runner for Jest on Typescript files:
+
+```lua
+impact.add_runner({
+  filetypes ={
+    "typescript"
+  },
+  commands = {
+    file = "jest %",
+    suite = "jest",
+  }
+})
+```
+
 
 ## Installation
 
