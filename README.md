@@ -10,8 +10,6 @@ Use your favorite package manager.
 require "paq" {
   "sebkolind/impact.nvim";
 }
-
-:PaqInstall
 ```
 
 ## Getting started
