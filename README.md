@@ -63,7 +63,7 @@ vim.api.nvim_create_user_command("RunEntireSuite", "lua require('impact').run_en
 
 ## TODO
 
-[] Run closest test based on cursor position
+- [ ] Run closest test based on cursor position
 
 ## Contribute
 
