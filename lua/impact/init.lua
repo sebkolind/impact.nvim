@@ -44,18 +44,18 @@ local function find_runner_and_run(command)
         end
 
         vim.api.nvim_command(
-        config.mode
-        .. " | term "
-        .. " "
-        .. options.commands[command]
+          config.mode
+          .. " | term "
+          .. " "
+          .. options.commands[command]
         )
 
         if config.close_on_success then
           local buffer_number = vim.api.nvim_get_current_buf()
           vim.api.nvim_command(
-          "autocmd TermClose * ++once if !v:event.status | execute '.. bdelete! "
-          .. buffer_number
-          .. "' | endif"
+            "autocmd TermClose * ++once if !v:event.status | execute '.. bdelete! "
+            .. buffer_number
+            .. "' | endif"
           )
         end
 
