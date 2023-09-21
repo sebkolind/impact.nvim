@@ -4,14 +4,14 @@ A simple test runner for Neovim. The plugin provides an easy way to run your cur
 
 ## Use case
 
-Currently working on my Jest tests in `myTests.ts`. Instead of running those in a separate terminal, I can use Impact to run the current file with ease - either 
+Currently working on my Jest tests in `stuff.test.ts`. Instead of running those in a separate terminal, I can use Impact to run the current file with ease - either 
 with a custom command or a keymap, or both if you are feeling fancy.
 
 All I have to do is to add a runner for Jest on Typescript files:
 
 ```lua
 impact.add_runner({
-  filetypes ={
+  filetypes = {
     "typescript"
   },
   commands = {
@@ -21,15 +21,12 @@ impact.add_runner({
 })
 ```
 
-
 ## Installation
 
 Use your favorite package manager.
 
 ```lua
-require "paq" {
-  "sebkolind/impact.nvim";
-}
+use "sebkolind/impact.nvim"
 ```
 
 ## Getting started
@@ -60,9 +57,13 @@ vim.keymap.set("n", "<Leader>t", impact.run_current_file, {})
 vim.keymap.set("n", "<Leader>ts", impact.run_entire_suite, {})
 
 -- Or add a command if that is your thing
-vim.api.nvim_create_user_command("RunCurrentFile", "lua require'impact'.run_current_file()")
-vim.api.nvim_create_user_command("RunEntireSuite", "lua require'impact'.run_entire_suite()")
+vim.api.nvim_create_user_command("RunCurrentFile", "lua require('impact').run_current_file()")
+vim.api.nvim_create_user_command("RunEntireSuite", "lua require('impact').run_entire_suite()")
 ```
+
+## TODO
+
+[] Run closest test based on cursor position
 
 ## Contribute
 
