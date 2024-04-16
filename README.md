@@ -10,7 +10,7 @@ with a custom command or a keymap, or both if you are feeling fancy.
 All I have to do is to add a runner for Jest on Typescript files:
 
 ```lua
-impact.add_runner({
+impact.add_runner {
   filetypes = {
     "typescript"
   },
@@ -18,7 +18,7 @@ impact.add_runner({
     file = "jest %",
     suite = "jest",
   }
-})
+}
 ```
 
 ## Installation
@@ -34,27 +34,30 @@ use "sebkolind/impact.nvim"
 ```lua
 local impact = require("impact")
 
-impact.setup({
+impact.setup {
   mode = "split", -- default, can be "vsplit"
   close_on_success = true, -- default
   save_before_run = true, -- default
   scroll_on_output = true, -- default
-})
+}
 
 -- Add a runner for specific filetypes
-impact.add_runner({
-  filetypes ={
-    "typescript"
+impact.add_runner {
+  filetypes = {
+    "typescript",
+    "typescriptreact", -- for React projects
   },
   commands = {
+    -- Both commands can be a string with a single command, but with many options,
+    -- it is simply passed to a terminal as is.
     file = "jest %", -- Used on require'impact'.run_current_file()
     suite = "jest", -- Used on require'impact'.run_entire_suite()
   }
-})
+}
 
 -- Add some mappings of your taste
-vim.keymap.set("n", "<Leader>t", impact.run_current_file, {})
-vim.keymap.set("n", "<Leader>ts", impact.run_entire_suite, {})
+vim.keymap.set('n', '<Leader>tf', impact.run_current_file, { desc = 'Run [T]est [F]ile' })
+vim.keymap.set('n', '<Leader>ts', impact.run_entire_suite, { desc = 'Run [T]est [S]uite' })
 
 -- Or add a command if that is your thing
 vim.api.nvim_create_user_command("RunCurrentFile", "lua require('impact').run_current_file()")
@@ -64,6 +67,7 @@ vim.api.nvim_create_user_command("RunEntireSuite", "lua require('impact').run_en
 ## TODO
 
 - [ ] Run closest test based on cursor position
+- [ ] Run test named the same as the current file
 
 ## Contribute
 
